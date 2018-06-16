@@ -1,0 +1,22 @@
+{
+    "name": "yuri/gerenciador-projetos",
+    "authors": [
+        {
+            "name": "Yuri Calabrez",
+            "email": "yuri.calabrez@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SON\\Framework\\": "src",
+            "App\\": "app"
+        }
+    },
+    "scripts": {
+        "server": "php -S localhost:8080 -t public"
+    },
+    "config": {
+        "process-timeout": 0
+    }
+}
