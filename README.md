@@ -1,3 +1,3 @@
-#Gerenciador de Projetos com PHP
+# Gerenciador de Projetos com PHP
 
 Projeto para fins de estudo.
