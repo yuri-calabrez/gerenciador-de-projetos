@@ -6,7 +6,10 @@
             "email": "yuri.calabrez@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "pimple/pimple": "~3.0",
+        "symfony/http-foundation": "^4.1"
+    },
     "autoload": {
         "psr-4": {
             "SON\\Framework\\": "src",
