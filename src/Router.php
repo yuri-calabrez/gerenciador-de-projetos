@@ -38,7 +38,8 @@ class Router
 
     public function getCurrentUrl(): string
     {
-        $url = filter_var($_SERVER['PATH_INFO'], FILTER_DEFAULT) ?? "/";
+
+        $url = isset($_SERVER['PATH_INFO']) ? filter_var($_SERVER['PATH_INFO'], FILTER_DEFAULT) : "/";
         if (strlen($url) > 1) {
             $url = rtrim($url, '/');
         }
