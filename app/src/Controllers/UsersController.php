@@ -2,35 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use SON\Framework\CrudController;
 
 
-class UsersController
+class UsersController extends CrudController
 {
-    public function index($container, $request)
+    protected function getModel(): string
     {
-       return '';
-    }
-
-    public function create($container, $request)
-    {
-        return '';
-    }
-
-    public function show($container, $request)
-    {
-        $user = new User($container);
-        $user->create(['name' => 'Yuri']);
-        return $user->get($request->attributes->get(1));
-    }
-
-    public function update($container, $request)
-    {
-        return '';
-    }
-
-    public function delete($container, $request)
-    {
-        return '';
+        return 'users_model';
     }
 }

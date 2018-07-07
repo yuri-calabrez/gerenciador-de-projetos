@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Users;
 use Zend\EventManager\EventManager;
 
 $container['events'] = function(){
@@ -17,4 +18,8 @@ $container['db'] = function() {
     $pdo = new \PDO($dsn, $username, $password, $options);
     $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     return $pdo;
+};
+
+$container['users_model'] = function($c) {
+    return new Users($c);
 };
