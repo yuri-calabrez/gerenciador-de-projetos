@@ -2,15 +2,6 @@
     <div>
         <v-navigation-drawer app v-model="drawer" clipped>
             <v-list>
-                <v-list-tile to="/">
-                    <v-list-tile-action>
-                        <v-icon>home</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Home</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-
                 <v-list-tile to="/projects">
                     <v-list-tile-action>
                         <v-icon>dashboard</v-icon>
@@ -19,7 +10,17 @@
                         <v-list-tile-title>Projetos</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-            </v-list>   
+            </v-list>
+            <v-list>
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>schedule</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Agenda</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
         </v-navigation-drawer>
 
         <v-toolbar app clipped-left dark color="indigo darken-2">
