@@ -10,7 +10,7 @@
                     et dolore magna aliqua
                 </v-card-text>
                 <v-card-actions>
-                    <v-btn flat>Ver +</v-btn>
+                    <v-btn flat :to="{name: 'projects.show', params: {id: 5}}">Ver +</v-btn>
                 </v-card-actions>
             </v-card>
         </v-flex>
