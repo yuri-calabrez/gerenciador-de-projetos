@@ -14,5 +14,19 @@
                 </v-card-actions>
             </v-card>
         </v-flex>
+
+        <v-flex lg3 md4 xs12>
+            <ProjectCreate/>
+        </v-flex>
     </v-layout>
 </template>
+
+<script>
+import ProjectCreate from './Create'
+
+export default {
+    components: {
+        ProjectCreate
+    }
+}
+</script>

@@ -14,7 +14,6 @@ export default new Router({
     },
     {
         path: '/projects',
-        name: 'projects.index',
         component: Projects,
         children: [
             {
