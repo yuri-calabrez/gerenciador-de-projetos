@@ -20,7 +20,18 @@
         </v-flex>
 
         <v-flex lg3 md3 xs12>
-            //cria sessão
+            <CreateSection/>
         </v-flex>
     </v-layout>
 </template>
+
+<script>
+import CreateSection from '@/components/sections/Create'
+
+export default {
+    components: {
+        CreateSection
+    }
+}
+</script>
+
