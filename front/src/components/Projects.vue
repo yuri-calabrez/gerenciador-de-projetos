@@ -12,6 +12,9 @@
 
 <script>
     export default {
-        name: 'Projects'
+        name: 'Projects',
+        mounted() {
+            this.$store.dispatch('projects/getAll')
+        }
     }
 </script>

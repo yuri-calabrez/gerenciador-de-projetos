@@ -1,9 +1,8 @@
 <template>
     <v-layout row wrap>
         <v-flex xs12>
-            <h2 class="mb-2">Nome do projeto</h2>
-
-            <p>texto qualquer</p>
+            <h2 class="mb-2">{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
         </v-flex>
 
         <Sections/>
@@ -24,6 +23,12 @@ export default {
     components: {
         Sections,
         ShowTask
+    },
+    computed: {
+        project() {
+            const id = this.$route.params.id
+            return this.$store.getters['projects/byId'](id)
+        }
     }
 }
 </script>

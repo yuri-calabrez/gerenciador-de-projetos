@@ -31,9 +31,6 @@ export default {
         projects() {
             return this.$store.state.projects.all
         }
-    },
-    mounted() {
-        this.$store.dispatch('projects/getAll')
     }
 }
 </script>
