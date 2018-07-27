@@ -10,11 +10,11 @@
                 </v-card-text>
 
                 <v-card-text>
-                    //lista tarefas
+                    <Task/>
                 </v-card-text>
 
                 <v-card-text>
-                    //criação tarefas
+                    <TaskCreate/>
                 </v-card-text>
             </v-card>
         </v-flex>
@@ -27,10 +27,14 @@
 
 <script>
 import CreateSection from '@/components/sections/Create'
+import Task from '@/components/tasks/List'
+import TaskCreate from '@/components/tasks/Create'
 
 export default {
     components: {
-        CreateSection
+        CreateSection,
+        Task,
+        TaskCreate
     }
 }
 </script>
