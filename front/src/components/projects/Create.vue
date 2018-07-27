@@ -24,21 +24,21 @@
                             ref="menuDate" 
                             v-model="menuDate"
                             :close-on-content-click="false"
-                            :return-value.sync="data.due_date">
+                            :return-value.sync="due_date">
                             <v-text-field
                                 slot="activator"
-                                v-model="data.due_date"
+                                v-model="due_date"
                                 label="Data de entrega"
                                 readonly
                             ></v-text-field>
 
                             <v-date-picker
-                                v-model="data.due_date"
+                                v-model="due_date"
                                 no-title
                                 scrollable
                             >
                                 <v-btn color="secondary" flat @click="menuDate = false">Cancelar</v-btn>
-                                <v-btn color="primary" flat @click="$refs.menuDate.save(data.due_date)">OK</v-btn>
+                                <v-btn color="primary" flat @click="$refs.menuDate.save(due_date)">OK</v-btn>
                             </v-date-picker>
                         </v-menu>
 
@@ -72,6 +72,7 @@ export default {
     data () {
         return {
             valid: false,
+            due_date: null,
             due_date_time: '12:00',
             menuDate: false,
             menuTime: false,
@@ -85,8 +86,9 @@ export default {
     },
     methods: {
         submit() {
-            this.data.due_date = `${this.data.due_date} ${this.due_date_time}:00`
-            console.log(this.data)
+            this.data.user_id = 1 //temporario
+            this.data.due_date = `${this.due_date} ${this.due_date_time}:00`
+            this.$store.dispatch('projects/create', this.data)
         }
     }
 }

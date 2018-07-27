@@ -49,7 +49,6 @@ abstract class Model
     public function create(array $data)
     {
         $query = $this->queryBuilder->insert($this->table, $data)->getData();
-
         $stmt = $this->db->prepare($query->sql);
         $stmt->execute($query->bind);
 
