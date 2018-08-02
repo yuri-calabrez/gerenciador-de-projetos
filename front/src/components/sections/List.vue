@@ -1,20 +1,20 @@
 <template>
     <v-layout id="sections-container" row>
-        <v-flex lg3 md3 xs12 v-for="n in 3" :key="n">
+        <v-flex lg3 md3 xs12 v-for="section in sections" :key="section.id">
             <v-card color="blue-grey lighten-5">
                 <v-card-title primary-title class="blue-grey white--text">
-                    <div class="headline">Sessão {{ n }}</div>
+                    <div class="headline">{{ section.title }}</div>
                 </v-card-title>
                 <v-card-text>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odio cupiditate placeat cumque rerum doloremque excepturi tenetur fugit quaerat eligendi exercitationem praesentium, error delectus quis corrupti saepe distinctio fuga vel!
+                    {{ section.description }}
                 </v-card-text>
 
                 <v-card-text>
-                    <Task/>
+                    <Task :section="section.id"/>
                 </v-card-text>
 
                 <v-card-text>
-                    <TaskCreate/>
+                    <TaskCreate :section="section.id"/>
                 </v-card-text>
             </v-card>
         </v-flex>
@@ -35,6 +35,14 @@ export default {
         CreateSection,
         Task,
         TaskCreate
+    },
+    computed: {
+        sections() {
+            return this.$store.state.sections.all
+        }
+    },
+    mounted() {
+        this.$store.dispatch('sections/getAll', this.$route.params.id)
     }
 }
 </script>
