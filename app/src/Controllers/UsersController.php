@@ -45,7 +45,7 @@ class UsersController
         return ['token' => $token];
     }
 
-    public function getCurrentUser($c, $request)
+    public function getCurrentUser($c)
     {
         $token = getallheaders()['Authorization'] ?? null;
         if (!$token) {

@@ -1,0 +1,5 @@
+import axios from 'axios'
+
+window.axios = axios
+//temporário
+window.axios.defaults.headers.common['Authorization'] = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MzMzMjIxMjYsImV4cCI6MTUzMzMyNTcyNiwidXNlciI6eyJpZCI6IjIiLCJuYW1lIjoiWXVyaSIsImVtYWlsIjoieXVyaUB1c2VyLmNvbSIsImNyZWF0ZWQiOm51bGwsIm1vZGlmaWVkIjpudWxsfX0.HFemriNH-Tx6xSIRb3boxEP1uvIst2DDLr7qHBPFHPo'

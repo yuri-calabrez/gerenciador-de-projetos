@@ -1,9 +1,13 @@
 <?php
 
 $app->middleware('before', function($c){
-    header('Content-Type: application/json');
-});
+    if (!preg_match('/^\/api\/*./', $c['router']->getCurrentUrl())) {
+        return;
+    }
 
-$app->middleware('before', function($c){
-    //proteção das rotas da api
+    $data = (new \App\Controllers\UsersController)->getCurrentUser($c);
+
+    $c['loggedUser'] = function() use ($data) {
+        return $data;
+    };
 });
