@@ -34,4 +34,11 @@ $container['users_model'] = function ($c) {
     return new Users($c);
 };
 
+$container['jwt'] = function () {
+    return [
+        'secret' => 'lnDVS33Bl7CO9Q45g2tKE6H6tWJYhsTey4epQATG',
+        'exp' => time() + (60 * 60)
+    ];
+};
+
 return $container;
