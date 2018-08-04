@@ -12,7 +12,7 @@
                 </v-list-tile>
             </v-list>
             <v-list>
-                <v-list-tile @click="">
+                <v-list-tile to="/schedules">
                     <v-list-tile-action>
                         <v-icon>schedule</v-icon>
                     </v-list-tile-action>
