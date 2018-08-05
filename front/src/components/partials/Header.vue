@@ -28,7 +28,7 @@
             <v-toolbar-title>Project Manager</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
-                <v-btn flat><v-icon>exit_to_app</v-icon> Sair</v-btn>
+                <v-btn flat @click="logout()"><v-icon>exit_to_app</v-icon> Sair</v-btn>
             </v-toolbar-items>
         </v-toolbar>
     </div>
@@ -39,6 +39,11 @@ export default {
     data() {
         return {
             drawer: true
+        }
+    },
+    methods: {
+        logout() {
+            this.$store.dispatch('auth/logout')
         }
     }
 }

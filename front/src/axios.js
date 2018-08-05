@@ -1,5 +1,11 @@
 import axios from 'axios'
+import store from './store'
 
 window.axios = axios
-//temporário
-window.axios.defaults.headers.common['Authorization'] = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MzM1MDQxMjMsImV4cCI6MTUzMzUwNzcyMywidXNlciI6eyJpZCI6IjIiLCJuYW1lIjoiWXVyaSIsImVtYWlsIjoieXVyaUB1c2VyLmNvbSIsImNyZWF0ZWQiOm51bGwsIm1vZGlmaWVkIjpudWxsfX0.KSvmjDZM6SimP4JMwlxJC5JneF0fNJXajl_oAfT7ZPw'
+
+const token = window.localStorage.getItem('token')
+
+if (token) {
+    window.axios.defaults.headers.common['Authorization'] = token
+    store.commit('auth/updateLogged', true)
+}
