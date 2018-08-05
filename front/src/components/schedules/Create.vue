@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { Bus } from '@/eventBus'
+
 export default {
     props: ['date'],
     data () {
@@ -47,7 +49,12 @@ export default {
     methods: {
         submit() {
             this.data.due_date = `${this.date} ${this.due_date_time}:00`
-            console.log(this.data)
+            this.$store.dispatch('schedules/create', this.data)
+                .then(() => {
+                    this.$refs.form.reset()
+                    this.data.due_date = null
+                    Bus.$emit('schedules_created')
+                })
         }
     }
 }

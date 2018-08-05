@@ -38,7 +38,8 @@
                     <v-list>
                         <v-list-tile v-for="(event, index) in today" :key="index">
                             <v-list-tile-content>
-                                <v-list-tile-title>{{ event }}</v-list-tile-title>
+                                <v-list-tile-title>{{ event.description }}</v-list-tile-title>
+                                <v-list-tile-sub-title>{{ event.due_date.substr(11, event.due_date.length) }}</v-list-tile-sub-title>
                             </v-list-tile-content>
                         </v-list-tile>
                     </v-list>
@@ -51,6 +52,7 @@
 <script>
 import _ from 'underscore'
 import Create from '@/components/schedules/Create'
+import { Bus } from '@/eventBus'
 
 export default {
     components: {
@@ -64,20 +66,18 @@ export default {
     },
     computed: {
         events() {
-            return [...Array(15)].map(() => {
-                const day = Math.floor(Math.random() * 30)
-                const date = new Date()
-                date.setDate(day)
-                return date.toISOString().substr(0, 10)
+            return this.schedules.map((item) => {
+                const date = item.due_date
+                return date.substr(0, 10)
             })
+        },
+        schedules() {
+            return this.$store.state.schedules.all
         }
     },
     watch: {
         date: function(to, from) {
-            const events = _.filter(this.events, (item) => {
-                return item == to
-            })
-            this.today = events
+           this.filterToDate(to)
         }
     },
     methods: {
@@ -87,7 +87,21 @@ export default {
                 const date = new Date()
                 this.date = date.toISOString().substr(0, 10)
             }, 100)
+        },
+        filterToDate(to) {
+            const events = _.filter(this.schedules, (item) => {
+                let date = item.due_date
+                date = date.substr(0, 10)
+                return date == to
+            })
+            this.today = events
         }
+    },
+    mounted() {
+        this.$store.dispatch('schedules/getAll')
+        Bus.$on('schedules_created', () => {
+            this.filterToDate(this.date)
+        })
     }
 }
 </script>
